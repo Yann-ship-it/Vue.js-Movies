@@ -1,34 +1,50 @@
-<template>
-  <div id="app">
-    <HeaderNav />
-
-    <div v-if="$route.path == '/'">
-      <!-- Si la route est / (Racine du site) -->
-      <h1 class="pt-5 font-weight-light">
-        Vos films préférés sont sur VueJS Moviee !
-      </h1>
-      <MoviesList :movies="movies" :loading="loading" :errored="errored" />
-    </div>
-
-    <div v-else>
-      <router-view :key="$route.fullPash"></router-view>
-    </div>
-
-    <FooterApp />
-  </div>
+<template> 
+  <div class="container">
+    <h3>Users:</h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">City</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="user in users" v-bind:key="user.id"> 
+          <th scope="row">{{user.id}}</th>
+          <td>{{user.name}}</td>
+          <td>{{user.email}}</td>
+          <td>{{user.address.city}}</td>
+        </tr>
+      </tbody>
+    </table> 
+  </div> 
 </template>
 
 <script>
-
+import axios from "axios";
+export default {
+  name: "UsersMid",
+  data() {
+    return {
+      users: null,
+    };
+  },
+  created: function () { // FONCTIOn
+    axios.get("https://jsonplaceholder.typicode.com/users").then((res) => {
+      this.users = res.data;
+    });
+  },
+};
 </script>
-
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
 }
-</style>
+</style> 
