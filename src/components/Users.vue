@@ -13,9 +13,9 @@
       <tbody>
         <tr v-for="user in users" v-bind:key="user.id"> <!-- V-For est une boucle JS en vue avec sa synthaxe, v-bind c'est pour lié des données, attribue key, valeur user.id -->
           <th scope="row">{{user.id}}</th> <!-- {{ Ceci est pour utiliser variable }} -->
-          <td>{{user.name}}</td> <!-- {{ Ceci est pour utiliser variable }} -->
-          <td>{{user.email}}</td> <!-- {{ Ceci est pour utiliser variable }} -->
-          <td>{{user.address.city}}</td> <!-- {{ Ceci est pour utiliser variable }} -->
+          <td class="username">{{user.name}}</td> <!-- {{ Ceci est pour utiliser variable }} -->
+          <td class="mail">{{user.email}}</td> <!-- {{ Ceci est pour utiliser variable }} -->
+          <td class="city">{{user.address.city}}</td> <!-- {{ Ceci est pour utiliser variable }} -->
         </tr>
       </tbody>
     </table> 
@@ -39,12 +39,15 @@ export default {
 };
 </script> 
 <style> /* Ceci est la balise de style, si le mot "scope" n'est pas mis, cette endroit touche à tous les composants*/
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+.username {
+  color: red;
+}
+
+.mail {
+  color: rgb(96, 96, 210);
+}
+
+.city {
+  color: rgb(46, 191, 143);
 }
 </style>
