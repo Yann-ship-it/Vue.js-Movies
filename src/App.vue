@@ -1,8 +1,9 @@
+
 <template>
-  <HeaderNav />
-  <MoviesList />
-  <MoviesCard />
-  <FooterApp />
+  <HeaderNav /> <!-- Nous sommes obligés d'appeler l'élément ici pour l'organiser et l'afficher -->
+  <MoviesList /> <!-- Nous sommes obligés d'appeler l'élément ici pour l'organiser et l'afficher -->
+  <MoviesCard /> <!-- Nous sommes obligés d'appeler l'élément ici pour l'organiser et l'afficher -->
+  <FooterApp /> <!-- Nous sommes obligés d'appeler l'élément ici pour l'organiser et l'afficher -->
 </template>
 
 <script>

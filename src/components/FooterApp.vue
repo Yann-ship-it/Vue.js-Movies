@@ -32,7 +32,7 @@ export default {
 }
 
 .test {
-  background-color: #7D33C6;
+  background: #7D33C6;
   color: white;
   width: 25%;
   border-radius: 10px;

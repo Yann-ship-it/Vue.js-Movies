@@ -3,7 +3,7 @@
     <h1>Movies Vue.JS</h1>
     <nav>
       <ul>
-        <a href=""> <li>VueJS Movies</li></a>
+        <router-link to="/"><a href=""> <li>VueJS Movies</li></a></router-link> 
         <a href=""> <li>Films Français</li></a>
         <a href=""> <li>Films Américains</li></a>
         <a href=""> <li>Top 50 les mieux notés</li></a>
@@ -29,6 +29,7 @@ export default {
 h1 {
   letter-spacing: 50px;
   text-transform: uppercase;
+  padding: 20px 0 20px;
 }
 
 ul {
@@ -49,6 +50,6 @@ a {
 
 a:hover {
   transition: 0.7s;
-  color: rgb(238, 101, 32);
+  color:#7D33C6;
 }
 </style>
