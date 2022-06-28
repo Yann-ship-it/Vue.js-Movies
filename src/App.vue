@@ -1,9 +1,18 @@
 
 <template>
-  <HeaderNav /> <!-- Nous sommes obligés d'appeler l'élément ici pour l'organiser et l'afficher -->
-  <MoviesList /> <!-- Nous sommes obligés d'appeler l'élément ici pour l'organiser et l'afficher -->
-  <MoviesCard /> <!-- Nous sommes obligés d'appeler l'élément ici pour l'organiser et l'afficher -->
-  <FooterApp /> <!-- Nous sommes obligés d'appeler l'élément ici pour l'organiser et l'afficher -->
+  <div id="app">
+    <HeaderNav />
+    <div v-if="$route.path == '/' "> 
+      <h1>Vos films favoris sont sur VueJS Movies</h1>
+      <MoviesList :movies="movies" :loading="loading" :errored="errored" />
+      </div>
+
+      <div v-else>
+        <router-view :key="$route.fullPath"></router-view>
+      </div>
+      <FooterApp />
+      <MoviesCard />
+  </div>
 </template>
 
 <script>
