@@ -1,6 +1,6 @@
 <template>
   <div v-for="movie in movies" :key="movie.id">
-    {{ movie }}
+    {{ adult }}
   </div>
 </template>
 
