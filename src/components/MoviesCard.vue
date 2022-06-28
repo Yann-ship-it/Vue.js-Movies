@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: "MoviesApp",
+  name: "MoviesCard",
 };
 </script>
 

@@ -4,10 +4,10 @@
     <nav>
       <ul>
         <a href=""> <li>VueJS Movies</li></a>
-        <a href=""> <li>Filme Français</li></a>
-        <a href=""> <li>Filme Américains</li></a>
+        <a href=""> <li>Films Français</li></a>
+        <a href=""> <li>Films Américains</li></a>
         <a href=""> <li>Top 50 les mieux notés</li></a>
-        <a href=""> <li>Recherche un filme</li></a>
+        <a href=""> <li>Recherche un film</li></a>
       </ul>
     </nav>
   </div>
@@ -20,6 +20,7 @@ export default {
 </script>
 
 <style scoped>
+
 * {
   margin: 0;
   padding: 0;
@@ -28,10 +29,6 @@ export default {
 h1 {
   letter-spacing: 50px;
   text-transform: uppercase;
-}
-
-nav {
-  color: black;
 }
 
 ul {
@@ -45,7 +42,13 @@ ul {
   height: 50px;
 }
 
-li {
+a {
+  transition: 0.5s;
   color: white;
+}
+
+a:hover {
+  transition: 0.7s;
+  color: rgb(238, 101, 32);
 }
 </style>
