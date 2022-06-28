@@ -1,6 +1,6 @@
 <template>
   <div v-for="movie in movies" :key="movie.id">
-    {{ adult }}
+    
   </div>
 </template>
 
@@ -15,7 +15,6 @@ export default {
   },
 
   mounted () {
-    // FONCTIOn
     axios
       .get(
         "https://api.themoviedb.org/3/discover/movie?api_key=c97ee510a562e501f7a6273d40d73624&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate"
