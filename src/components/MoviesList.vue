@@ -1,6 +1,6 @@
 <template>
-  <div v-for="item in items" :key="item.id">
-    {{ item }}
+  <div v-for="movie in movies" :key="movie.id">
+    {{ movie }}
   </div>
 </template>
 
@@ -14,7 +14,7 @@ export default {
     };
   },
 
-  created: function () {
+  mounted () {
     // FONCTIOn
     axios
       .get(
