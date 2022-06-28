@@ -3,11 +3,11 @@
     <h1>Movies Vue.JS</h1>
     <nav>
       <ul>
-        <router-link to="/"><a href=""> <li>VueJS Movies</li></a></router-link> 
-        <a href=""> <li>Films Français</li></a>
-        <a href=""> <li>Films Américains</li></a>
-        <a href=""> <li>Top 50 les mieux notés</li></a>
-        <a href=""> <li>Recherche un film</li></a>
+        <router-link to="/"><li>VueJS Movies</li></router-link> 
+        <router-link to="/FrenchMovies"><li>Films Français</li></router-link> 
+        <router-link to="/UsMovies"><li>Films Américains</li></router-link> 
+        <router-link to="/Top50Movies"><li>Top 50 les mieux notés</li></router-link> 
+        <router-link to="/SearchMovies"><li>Recherche un film</li></router-link> 
       </ul>
     </nav>
   </div>
@@ -43,12 +43,12 @@ ul {
   height: 50px;
 }
 
-a {
+li {
   transition: 0.5s;
   color: white;
 }
 
-a:hover {
+li:hover {
   transition: 0.7s;
   color:#7D33C6;
 }

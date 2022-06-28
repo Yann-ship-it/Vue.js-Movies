@@ -1,29 +1,37 @@
 import { createApp } from 'vue'
 import App from './App.vue'
+import FrenchMovies from './components/FrenchMovies'
+import UsMovies from './components/UsMovies'
+import Top50Movies from './components/Top50Movies'
+import SearchMovies from './components/SearchMovies'
+import VueRouter from 'vue-router' 
 
+const router = VueRouter.createRouter({
+    history: VueRouter.createWebHashHistory(),
+    routes,
+  })
 
-createApp(App).mount('#app')
-
-import Vue from 'vue' 
-import Router from 'vue-router' 
-import App from "./components/App.vue"
-
-Vue.use(Router)
-
-export default new Router({
-  routes: [
+  const routes = [
     {
         path: '/',
-        name: 'Home',
-        component: Home
+        component: App
     },
     {
-        path: '/about',
-        name: 'About',
-        // route level code-splitting
-        // this generates a separate chunk (about.[hash].js) for this route
-        // which is lazy-loaded when the route is visited.
-        component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
-    }
+        path: '/FrenchMovies',
+        component: FrenchMovies
+    },
+    {
+        path: '/UsMovies',
+        component: UsMovies
+    },
+    {
+        path: '/Top50Movies',
+        component: Top50Movies
+    },
+    {
+        path: '/SearchMovies',
+        component: SearchMovies
+    },
   ]
-})
+
+createApp(App).use(router).mount('#app')
