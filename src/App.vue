@@ -1,40 +1,19 @@
-<template> 
-  <div class="container">
-    <h3>Users:</h3>
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">Id</th>
-          <th scope="col">Name</th>
-          <th scope="col">Email</th>
-          <th scope="col">City</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="user in users" v-bind:key="user.id"> 
-          <th scope="row">{{user.id}}</th>
-          <td>{{user.name}}</td>
-          <td>{{user.email}}</td>
-          <td>{{user.address.city}}</td>
-        </tr>
-      </tbody>
-    </table> 
-  </div> 
+<template>
+  <MoviesList />
+  <HeaderNav />
+  <FooterApp />
 </template>
 
 <script>
-import axios from "axios";
+import HeaderNav from "./components/HeaderNav.vue"; // On importe le code qui est dans HeaderNav.vue
+import FooterApp from "./components/FooterApp.vue"; // On importe le code qui est dans FooterApp.vue
+import  MoviesList from "./components/MoviesList.vue";
 export default {
   name: "UsersMid",
-  data() {
-    return {
-      users: null,
-    };
-  },
-  created: function () { // FONCTIOn
-    axios.get("https://jsonplaceholder.typicode.com/users").then((res) => {
-      this.users = res.data;
-    });
+  components: {
+    MoviesList,
+    HeaderNav,
+    FooterApp,
   },
 };
 </script>
@@ -45,6 +24,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
-</style> 
+</style>
