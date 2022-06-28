@@ -1,6 +1,6 @@
 <template>
-  <div v-for="movie in movies" :key="movie.id">
-    
+  <div v-for="movie in movies" v-bind:key="movie.id">
+    <h1> {{movie.original_title}} </h1>
   </div>
 </template>
 
@@ -27,4 +27,7 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+
+
+</style>
