@@ -1,15 +1,10 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-import FrenchMovies from './components/FrenchMovies'
-import UsMovies from './components/UsMovies'
-import Top50Movies from './components/Top50Movies'
-import SearchMovies from './components/SearchMovies'
-import VueRouter from 'vue-router' 
-
-const router = VueRouter.createRouter({
-    history: VueRouter.createWebHashHistory(),
-    routes,
-  })
+import { createRouter, createWebHashHistory } from 'vue-router'
+import FrenchMovies from './components/FrenchMovies.vue'
+import UsMovies from './components/UsMovies.vue'
+import Top50Movies from './components/Top50Movies.vue'
+import SearchMovies from './components/SearchMovies.vue'
 
   const routes = [
     {
@@ -33,5 +28,10 @@ const router = VueRouter.createRouter({
         component: SearchMovies
     },
   ]
+
+  const router = createRouter({
+    history:createWebHashHistory(),
+    routes,
+  })
 
 createApp(App).use(router).mount('#app')
