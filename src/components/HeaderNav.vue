@@ -2,7 +2,7 @@
   <div>
     <h1>Movies Vue.JS</h1>
     <nav>
-      <ul>
+      <ul class="test">
         <router-link to="/"><li>VueJS Movies</li></router-link> 
         <router-link to="/FrenchMovies"><li>Films Français</li></router-link> 
         <router-link to="/UsMovies"><li>Films Américains</li></router-link> 
