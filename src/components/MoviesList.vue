@@ -1,7 +1,7 @@
 <template>
   <div class="cont">
     <div class="test" v-for="movie in movies" v-bind:key="movie.id">
-      <h2>{{ movie.original_title }}</h2>
+      <h2>{{ movie.title }}</h2>
       <img v-bind:src="preUrl + movie.poster_path" alt="moviePoster" />
       <div class="text">
         {{ movie.overview }}
@@ -25,11 +25,21 @@ export default {
   created: function () {
     axios
       .get(
-        "https://api.themoviedb.org/3/discover/movie?api_key=c97ee510a562e501f7a6273d40d73624&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate"
+        "https://api.themoviedb.org/3/discover/movie?api_key=c97ee510a562e501f7a6273d40d73624&language=fr-FR&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate"
       )
       .then((res) => {
         this.movies = res.data.results;
-        console.log(this.movies);
+
+        axios
+          .get(
+            "https://api.themoviedb.org/3/discover/movie?api_key=c97ee510a562e501f7a6273d40d73624&language=fr-FR&sort_by=popularity.desc&include_adult=false&include_video=false&page=2&with_watch_monetization_types=flatrate"
+          )
+          .then((res) => {
+            res.data.results.forEach(movie => {
+              this.movies.push(movie)
+            });
+            console.log(this.movies)
+          });
       });
   },
 };
