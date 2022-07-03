@@ -1,18 +1,17 @@
 <template>
-  <div class="cont">
-    <div class="test" v-for="movie in movies" v-bind:key="movie.id">
-      <h2>{{ movie.title }}</h2>
-      <img v-bind:src="preUrl + movie.poster_path" alt="moviePoster" />
-      <div class="text">
-        {{ movie.overview }}
-        <h3>Note : {{ movie.vote_average }}/10</h3>
-      </div>
-    </div>
+  <div>
+    <li class="list-unstyled" v-for="movie in movies" :key="movie.id">
+      <MoviesCard :id="movie.id" :title="movie.title" :poster_path="movie.poster_path"
+        :release_date="movie.release_date" :vote_average="movie.vote_average" :overview="movie.overview" />
+
+    </li>
   </div>
 </template>
 
 <script>
 import axios from "axios";
+import MoviesCard from './'
+
 export default {
   name: "MoviesList",
   data() {
@@ -75,6 +74,7 @@ h2 {
   width: 25%;
   border-radius: 10px;
 }
+
 h2 {
   background-color: #001b2e;
   border-top-left-radius: 10px;
