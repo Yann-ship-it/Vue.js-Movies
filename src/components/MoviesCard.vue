@@ -16,11 +16,22 @@
 export default {
   name: "MoviesCard",
   props: [
-    "title",
-    "poster_path",
-    "overview",
-    "vote_average",
-  ]
+        "id",
+        "index",
+        "title",
+        "release_date",
+        "vote_average",
+        "overview",
+        "poster_path",
+    ],
+     data() {
+        return {
+            movies: [],
+            loading: true,
+            errored: false,
+            preUrl: "https://image.tmdb.org/t/p/original/",
+        };
+    },
 };
 </script>
 
