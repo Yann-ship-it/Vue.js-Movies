@@ -1,5 +1,6 @@
 <template>
-    <div class="test">
+  <router-link :to="`/MovieDetails/${id}`">
+  <div class="test">
       <h2>{{title}}</h2>
       <img v-bind:src="preUrl + poster_path" alt="Poster" />
       <div class="text">
@@ -7,6 +8,8 @@
         <h3>Note : {{vote_average }}/10</h3>
       </div>
     </div>
+  </router-link>
+   
 </template>
 
 <script>

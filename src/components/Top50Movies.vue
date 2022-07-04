@@ -21,14 +21,14 @@ export default {
   created: function () {
     axios
       .get(
-        "https://api.themoviedb.org/3/discover/movie?api_key=c97ee510a562e501f7a6273d40d73624&sort_by=original_title.asc&include_adult=false&include_video=false&page=1"
+        "https://api.themoviedb.org/3/discover/movie?api_key=c97ee510a562e501f7a6273d40d73624&sort_by=vote_average.desc&vote_count.gte=10000&include_adult=false&include_video=false&page=1"
       )
       .then((res) => {
         this.top50Movies = res.data.results;
 
         axios
           .get(
-            "https://api.themoviedb.org/3/discover/movie?api_key=c97ee510a562e501f7a6273d40d73624&sort_by=original_title.asc&include_adult=false&include_video=false&page=2"
+            "https://api.themoviedb.org/3/discover/movie?api_key=c97ee510a562e501f7a6273d40d73624&sort_by=vote_average.desc&vote_count.gte=10000&include_adult=false&include_video=false&page=2"
           )
           .then((res) => {
             res.data.results.forEach((movie) => {
@@ -41,10 +41,10 @@ export default {
 
           axios
             .get(
-              "https://api.themoviedb.org/3/discover/movie?api_key=c97ee510a562e501f7a6273d40d73624&sort_by=original_title.asc&include_adult=false&include_video=false&page=3"
+              "https://api.themoviedb.org/3/discover/movie?api_key=c97ee510a562e501f7a6273d40d73624&sort_by=vote_average.desc&vote_count.gte=10000&include_adult=false&include_video=false&page=3"
             )
             .then((res) => {
-              this.top50Movies.splice(0, 10); 
+              this.top50Movies.splice(50, 10); 
               res.data.results.forEach((movie) => {
                 this.top50Movies.push(movie);
               })
