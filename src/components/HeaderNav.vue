@@ -7,6 +7,7 @@
         <router-link to="/FrenchMovies"><li>Films Français</li></router-link> 
         <router-link to="/UsMovies"><li>Films Américains</li></router-link> 
         <router-link to="/Top50Movies"><li>Top 50 les mieux notés</li></router-link> 
+        <router-link to="/LastMovies"><li>Derniers films</li></router-link> 
         <router-link to="/SearchMovies"><li>Recherche un film</li></router-link> 
       </ul>
     </nav>

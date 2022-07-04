@@ -1,88 +1,46 @@
 <template>
-  <div class="cont">
-    <div class="test" v-for="movie in movies" v-bind:key="movie.id">
-      <h2>{{ movie.title }}</h2>
-      <img v-bind:src="preUrl + movie.poster_path" alt="moviePoster" />
-      <div class="text">
-        {{ movie.overview }}
-        <h3>Note : {{ movie.vote_average }}/10</h3>
-      </div>
-    </div>
+<div>
+  <ul>
+    <li v-for="movie in movies" :key="movie.id">
+      <MoviesCard
+        :id = "movie.id"
+        :title = "movie.title" 
+        :poster_path = "movie.poster_path"
+        :overview = "movie.overview"
+        :vote_average = "movie.vote_average"
+      />
+    </li>
+  </ul>
   </div>
 </template>
 
 <script>
-import axios from "axios";
+import MoviesCard from "./MoviesCard.vue"
 export default {
   name: "MoviesList",
-  data() {
-    return {
-      movies: null,
-      preUrl: "https://image.tmdb.org/t/p/original",
-    };
+  components: {
+    MoviesCard
   },
-
-  created: function () {
-    axios
-      .get(
-        "https://api.themoviedb.org/3/discover/movie?api_key=c97ee510a562e501f7a6273d40d73624&language=fr-FR&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate"
-      )
-      .then((res) => {
-        this.movies = res.data.results;
-
-        axios
-          .get(
-            "https://api.themoviedb.org/3/discover/movie?api_key=c97ee510a562e501f7a6273d40d73624&language=fr-FR&sort_by=popularity.desc&include_adult=false&include_video=false&page=2&with_watch_monetization_types=flatrate"
-          )
-          .then((res) => {
-            res.data.results.forEach(movie => {
-              this.movies.push(movie)
-            });
-            console.log(this.movies)
-          });
-      });
-  },
+  props: [
+    "movies"
+  ],
 };
 </script>
 
 <style scoped>
+
 * {
   margin: 0;
   padding: 0;
 }
 
-img {
-  width: 100%;
-}
-
-.cont {
+ul {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
 }
 
-h2 {
-  height: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+li {
+  display: inline-block
 }
 
-.test {
-  background: #7d33c6;
-  color: white;
-  width: 25%;
-  border-radius: 10px;
-}
-h2 {
-  background-color: #001b2e;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-}
-
-.row {
-  display: flex;
-  justify-content: space-around;
-}
 </style>
