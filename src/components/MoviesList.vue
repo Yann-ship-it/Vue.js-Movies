@@ -34,13 +34,13 @@ export default {
   padding: 0;
 }
 
-ul {
+div {
   display: flex;
-  flex-wrap: wrap;
 }
 
 li {
-  display: inline-block
+  display: flex;
+  width: 80%;
 }
 
 </style>

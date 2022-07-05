@@ -1,6 +1,5 @@
 <template>
 <h1>Détails du film</h1>
-<h2></h2>
   <div id="trailer" v-if="video[0]">
     <iframe
       width="650"
@@ -53,9 +52,19 @@ export default {
 </script>
 
 <style>
+* {
+  margin: 0;
+  padding: 0;
+}
+
 #trailer {
     display: flex;
     width: 600px;
     height: 600px;
+}
+
+iframe {
+  width: 300px;
+  height: 300px;
 }
 </style>

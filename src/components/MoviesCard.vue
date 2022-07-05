@@ -45,7 +45,8 @@ img {
 }
 
 h2 {
-  height: 80px;
+  height: 100px;
+  font-size: 25px;
   display: flex;
   align-items: center;
   justify-content: center;

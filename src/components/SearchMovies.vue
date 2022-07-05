@@ -1,6 +1,11 @@
 <template>
   <h1>SearchMovies</h1>
-  <input type="text" v-model="search" @keyup="getSearch(search)" placeholder="Rechercher un film"  />
+  <input
+    type="text"
+    v-model="search"
+    @keyup="getSearch(search)"
+    placeholder="Rechercher un film"
+  />
   <SortButtons :movies="movies" />
   <MoviesList :movies="movies" :loading="loading" :errored="errored" />
 </template>
@@ -27,7 +32,8 @@ export default {
       axios
         .get(
           "https://api.themoviedb.org/3/search/company?api_key=c97ee510a562e501f7a6273d40d73624&page=1" +
-            search)
+            search
+        )
         .then((res) => {
           this.movies = res.data;
         });
@@ -37,6 +43,11 @@ export default {
 </script>
 
 <style>
+
+* {
+  margin: 0;
+  padding: 0;
+}
 
 input {
   display: block;
@@ -66,5 +77,4 @@ button {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
     rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
-
 </style>
