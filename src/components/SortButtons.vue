@@ -10,12 +10,12 @@
 export default {
   name: "SortButtons",
   props: ["movies"],
-  emits: ["sortByDate", "SortRating", "SortTitle"],
+  emits: ["sortByDate", "SortNote", "SortTitle"],
 
   data() {
     return {
       sortDate: false,
-      sortRating: false,
+      sortNote: false,
       sortTitle: false,
     };
   },
@@ -48,6 +48,66 @@ export default {
           return 0;
         });
         return (this.sortDate = false);
+      }
+    },
+
+    sortByNote() {
+      let listmovies = this.movies;
+
+      if (this.sortNote == false) {
+        listmovies.sort(function sortArray(movieA, movieB) {
+          if (movieA.vote_average > movieB.vote_average) {
+            return -1;
+          }
+          if (movieB.vote_average > movieA.vote_average) {
+            return 1;
+          }
+          return 0;
+        });
+        return (this.sortNote = true);
+      }
+
+      if (this.sortNote == true) {
+        listmovies.sort(function sortArray(movieA, movieB) {
+          if (movieA.vote_average < movieB.vote_average) {
+            return -1;
+          }
+          if (movieB.vote_average < movieA.vote_average) {
+            return 1;
+          }
+          return 0;
+        });
+        return (this.sortNote = false);
+      }
+    },
+
+    sortByTitle() {
+      let listmovies = this.movies;
+
+      if (this.sortTitle == false) {
+        listmovies.sort(function sortArray(movieA, movieB) {
+          if (movieA.title > movieB.title) {
+            return -1;
+          }
+          if (movieB.title > movieA.title) {
+            return 1;
+          }
+          return 0;
+        });
+        return (this.sortTitle = true);
+      }
+
+      if (this.sortTitle == true) {
+        listmovies.sort(function sortArray(movieA, movieB) {
+          if (movieA.title < movieB.title) {
+            return -1;
+          }
+          if (movieB.title < movieA.title) {
+            return 1;
+          }
+          return 0;
+        });
+        return (this.sortTitle = false);
       }
     },
   },

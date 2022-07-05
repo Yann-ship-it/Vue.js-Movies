@@ -3,7 +3,6 @@
     <HeaderNav />
     <div>
       <div v-if="$route.path == '/'">
-      <SortButtons :movies="lastMovies"/>
       <h1>Vos films favoris sont sur VueJS Movies</h1>
       <MoviesList :movies="movies" :loading="loading" errored="errored" />
     </div>
@@ -20,14 +19,12 @@
 <script>
 import axios from "axios";
 import HeaderNav from "./components/HeaderNav.vue"; // On importe le code qui est dans HeaderNav.vue
-import SortButtons from "./components/SortButtons.vue";
 import MoviesList from "./components/MoviesList.vue"; 
 import FooterApp from "./components/FooterApp.vue"; // On importe le code qui est dans FooterApp.vue
 export default {
   name: "App",
   components: {
     HeaderNav,
-    SortButtons,
     MoviesList,
     FooterApp,
   },

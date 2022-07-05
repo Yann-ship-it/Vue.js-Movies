@@ -55,7 +55,7 @@ h2 {
 .test {
   background: #7d33c6;
   color: white;
-  width: 300px;
+  width: 370px;
   border-radius: 10px;
 }
 
