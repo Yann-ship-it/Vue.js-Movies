@@ -3,7 +3,7 @@
   <ul>
     <li v-for="movie in movies" :key="movie.id">
       <MoviesCard
-        :id = "movie.id"
+        :id = "movie.id" 
         :title = "movie.title" 
         :poster_path = "movie.poster_path"
         :overview = "movie.overview"

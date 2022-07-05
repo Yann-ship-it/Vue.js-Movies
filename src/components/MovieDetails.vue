@@ -1,4 +1,6 @@
 <template>
+<h1>Détails du film</h1>
+<h2></h2>
   <div id="trailer" v-if="video[0]">
     <iframe
       width="650"
@@ -33,7 +35,7 @@ export default {
       )
       .then((res) => {
         this.movie = res.data;
-        console.log(this.movie);
+        console.log("test " + this.movie);
       });
 
     axios

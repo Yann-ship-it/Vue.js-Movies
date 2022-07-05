@@ -1,14 +1,18 @@
 <template>
   <h1>FrenchMovies</h1>
+   <SortButtons :movies="frenchMovies"/>
    <MoviesList :movies="frenchMovies" :loading="loading" :errored="errored" />
+   
 </template>
 <script>
 import MoviesList from "./MoviesList.vue"
+import SortButtons from "./SortButtons.vue";
 import axios from "axios"
 export default {
   name: "FrenchMovies",
   components: {
-    MoviesList
+    MoviesList,
+    SortButtons,
   },
   data() {
     return {

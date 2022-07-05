@@ -9,14 +9,13 @@
       </div>
     </div>
   </router-link>
-   
 </template>
 
 <script>
 export default {
   name: "MoviesCard",
   props: [
-    "id",
+    "id", // Obligatoire pour le movie details
     "title",
     "vote_average",
     "overview",
