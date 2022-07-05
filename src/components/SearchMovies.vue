@@ -29,9 +29,9 @@ export default {
   },
   methods: {
     getSearch(search) {
-      axios.get("https://api.themoviedb.org/3/search/movie?api_key=c97ee510a562e501f7a6273d40d73624&language=en-US&include_adult=false&query=" + search)
+      axios.get("https://api.themoviedb.org/3/search/movie?api_key=3ea8988340d4ed715d28b9978346c29e&language=en-US&include_adult=false&query=" + search)
         .then((res) => {
-          this.movies = res.data;
+          this.movies = res.data.results;
         });
     },
   },

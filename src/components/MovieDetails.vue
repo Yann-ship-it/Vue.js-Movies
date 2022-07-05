@@ -27,6 +27,7 @@ export default {
       id: this.$route.params.id,
       movie: [],
       video: [],
+      preUrl: "https://image.tmdb.org/t/p/original",
     };
   },
 
@@ -46,10 +47,10 @@ export default {
       .get(
         "https://api.themoviedb.org/3/movie/" +
           this.id +
-          "/videos?api_key=3ea8988340d4ed715d28b9978346c29e&language=fr"
+          "/videos?api_key=c97ee510a562e501f7a6273d40d73624&language=fr"
       )
       .then((res) => {
-        this.video = res.data;
+        this.video = res.data.results;
         console.log(this.video);
       });
   },

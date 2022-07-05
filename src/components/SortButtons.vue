@@ -1,8 +1,8 @@
 <template>
   <div>
-    <button @click="sortByNote">Note</button>
-    <button @click="sortByDate">Date</button>
-    <button @click="sortByTitle">Titre</button>
+    <button @click="sortByNote()">Note</button>
+    <button @click="sortByDate()">Date</button>
+    <button @click="sortByTitle()">Titre</button>
   </div>
 </template>
 
@@ -12,20 +12,19 @@ export default {
   props: ["movies"],
   emits: ["sortByDate", "SortRating", "SortTitle"],
 
-  // data() {
-  //   return {
-  //     sortDate: false,
-  //     sortRating: false,
-  //     sortTitle: false,
-  //   };
-  // },
+  data() {
+    return {
+      sortDate: false,
+      sortRating: false,
+      sortTitle: false,
+    };
+  },
 
   methods: {
     sortByDate() {
+      let listmovies = this.movies;
 
-      let listmovies = this.movies
-
-      // if (this.sortByDate == false) {
+      if (this.sortDate == false) {
         listmovies.sort(function sortArray(movieA, movieB) {
           if (movieA.release_date > movieB.release_date) {
             return -1;
@@ -33,11 +32,26 @@ export default {
           if (movieB.release_date > movieA.release_date) {
             return 1;
           }
-          return 0
+          return 0;
         });
+        return (this.sortDate = true);
+      }
+
+      if (this.sortDate == true) {
+        listmovies.sort(function sortArray(movieA, movieB) {
+          if (movieA.release_date < movieB.release_date) {
+            return -1;
+          }
+          if (movieB.release_date < movieA.release_date) {
+            return 1;
+          }
+          return 0;
+        });
+        return (this.sortDate = false);
       }
     },
-  }
+  },
+};
 
 </script>
 
@@ -45,6 +59,10 @@ export default {
 * {
   margin: 0;
   padding: 0;
+}
+
+div {
+  display: flex;
 }
 
 button {
@@ -62,5 +80,4 @@ button {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
     rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
-
 </style>

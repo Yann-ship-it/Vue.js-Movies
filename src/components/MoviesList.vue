@@ -26,6 +26,11 @@ export default {
 </script>
 
 <style scoped>
+
+a {
+  display: flex;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -34,6 +39,10 @@ export default {
 ul {
   display: flex;
   flex-wrap: wrap;
+}
+
+li {
+  display: flex;
 }
 
 </style>
