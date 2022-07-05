@@ -1,46 +1,39 @@
 <template>
-<div>
-  <ul>
-    <li v-for="movie in movies" :key="movie.id">
-      <MoviesCard
-        :id = "movie.id" 
-        :title = "movie.title" 
-        :poster_path = "movie.poster_path"
-        :overview = "movie.overview"
-        :vote_average = "movie.vote_average"
-      />
-    </li>
-  </ul>
+  <div>
+    <ul>
+      <li v-for="movie in movies" :key="movie.id">
+        <MoviesCard
+          :id="movie.id"
+          :title="movie.title"
+          :poster_path="movie.poster_path"
+          :overview="movie.overview"
+          :vote_average="movie.vote_average"
+        />
+      </li>
+    </ul>
   </div>
 </template>
 
 <script>
-import MoviesCard from "./MoviesCard.vue"
+import MoviesCard from "./MoviesCard.vue";
 export default {
   name: "MoviesList",
   components: {
-    MoviesCard
+    MoviesCard,
   },
-  props: [
-    "movies"
-  ],
+  props: ["movies"],
 };
 </script>
 
 <style scoped>
-
 * {
   margin: 0;
   padding: 0;
 }
 
-div {
+ul {
   display: flex;
-}
-
-li {
-  display: flex;
-  width: 80%;
+  flex-wrap: wrap;
 }
 
 </style>

@@ -1,14 +1,15 @@
 <template>
   <router-link :to="`/MovieDetails/${id}`">
-  <div class="test">
-      <h2>{{title}}</h2>
+    <div class="test">
+      <h2>{{ title }}</h2>
       <img v-bind:src="preUrl + poster_path" alt="Poster" />
       <div class="text">
         {{ overview }}
-        <h3>Note : {{vote_average }}/10</h3>
+        <h3>Note : {{ vote_average }}/10</h3>
       </div>
     </div>
   </router-link>
+  
 </template>
 
 <script>
@@ -31,8 +32,7 @@ export default {
     };
   },
 };
-
-</script>
+</script >
 
 <style scoped>
 * {
@@ -64,5 +64,4 @@ h2 {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
-
 </style>

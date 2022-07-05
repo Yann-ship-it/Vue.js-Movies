@@ -1,5 +1,10 @@
 <template>
-<h1>Détails du film</h1>
+  <h1>Détails du film</h1>
+  <img v-bind:src="preUrl + movie.poster_path" alt="Poster" />
+  <h2>{{ movie.title }}</h2>
+  <p>{{ movie.overview }}</p>
+  <h2>{{ movie.release_date }}</h2>
+  <h2>{{ movie.vote_average }}</h2>
   <div id="trailer" v-if="video[0]">
     <iframe
       width="650"
@@ -51,16 +56,16 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 * {
   margin: 0;
   padding: 0;
 }
 
 #trailer {
-    display: flex;
-    width: 600px;
-    height: 600px;
+  display: flex;
+  width: 600px;
+  height: 600px;
 }
 
 iframe {
