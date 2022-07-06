@@ -1,5 +1,6 @@
 <template>
   <div>
+
     <h1>Movies Vue.JS</h1>
     <nav>
       <ul class="test">
