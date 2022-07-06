@@ -1,10 +1,16 @@
 <template>
   <h1>Détails du film</h1>
-  <img v-bind:src="preUrl + movie.poster_path" alt="Poster" />
-  <h2>{{ movie.title }}</h2>
-  <p>{{ movie.overview }}</p>
-  <h2>{{ movie.release_date }}</h2>
-  <h2>{{ movie.vote_average }}</h2>
+  <div class="flex">
+    <img v-bind:src="preUrl + movie.poster_path" alt="Poster" />
+    <div class="col">
+      <h2>{{ movie.title }}</h2>
+      <p>{{ movie.overview }}</p>
+      <h2>{{ movie.release_date }}</h2>
+      <h2>{{ movie.vote_average }}/10</h2>
+    </div>
+    
+  </div>
+  
   <div id="trailer" v-if="video[0]">
     <iframe
       width="650"
@@ -63,14 +69,49 @@ export default {
   padding: 0;
 }
 
+img {
+  width: 40%;
+}
+
+.flex {
+display: flex;
+justify-content: space-around;
+flex-wrap: wrap;
+}
+
+.col {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 50px;
+}
+
+p {
+  width: 200px;
+  text-align: center;
+  display: flex;
+  margin: 0 auto;
+}
+
 #trailer {
   display: flex;
-  width: 600px;
-  height: 600px;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(19, 18, 18);
 }
 
 iframe {
   width: 300px;
   height: 300px;
 }
+
+@media (max-width: 720px) {
+  .flex {
+    flex-direction: column;
+  }
+  img {
+    margin: 0 auto;
+  }
+}
+
 </style>

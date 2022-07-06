@@ -64,4 +64,11 @@ h2 {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
+
+@media (max-width: 330px) {
+  .test {
+    width: 200px;
+  }
+}
+
 </style>

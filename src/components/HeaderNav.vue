@@ -53,4 +53,14 @@ li:hover {
   transition: 0.7s;
   color:#7D33C6;
 }
+
+@media (max-width: 1200px) {
+  ul {
+    flex-wrap: wrap;
+    height: 40%;
+  }
+  h1 {
+    font-size: 20px;
+  }
+}
 </style>
